@@ -10,7 +10,7 @@ class TestValidateInput(unittest.TestCase):
             validate_input()
 
     def test_input_data_type(self):
-        sys.argv[1] = 7
+        sys.argv.append(7)
         with self.assertRaises(Exception):
             validate_input()
 
