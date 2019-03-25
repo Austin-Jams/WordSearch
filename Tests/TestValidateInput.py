@@ -14,6 +14,12 @@ class TestValidateInput(unittest.TestCase):
         with self.assertRaises(Exception):
             validate_input()
 
+    def test_one_argument_limit(self):
+        sys.argv.append("red")
+        sys.argv.append("yellow")
+        with self.assertRaises(Exception):
+            validate_input()
+
 
 if __name__ == '__main__':
     unittest.main()
