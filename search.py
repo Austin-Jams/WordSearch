@@ -15,6 +15,12 @@ def validate_input():
         raise Exception("You passed an argument of type {}, this program only accepts strings."
                         .format(path_type))
 
+def is_text_file(path):
+    file_type = path[-4:]
+    if file_type == ".txt":
+        return True
+    else:
+        raise Exception(f'File was not a text file. Files should end in .txt."The file entered ended with {file_type}.')
 
 
 if __name__ == '__main__':
