@@ -1,6 +1,6 @@
 import unittest
 import sys
-from search import validate_input
+from search import validate_input, is_text_file
 
 
 class TestValidateInput(unittest.TestCase):
@@ -14,11 +14,12 @@ class TestValidateInput(unittest.TestCase):
         with self.assertRaises(Exception):
             validate_input()
 
-    def test_one_argument_limit(self):
-        sys.argv.append("red")
-        sys.argv.append("yellow")
+    def test_is_txt_file(self):
+        path = "TestData/goodData1.txt"
+        self.assertTrue(is_text_file(path))
+        path = "ksdbfkdsj.com"
         with self.assertRaises(Exception):
-            validate_input()
+            is_text_file(path)
 
 
 if __name__ == '__main__':
