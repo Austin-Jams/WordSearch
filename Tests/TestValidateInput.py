@@ -1,6 +1,6 @@
 import unittest
 import sys
-from search import validate_input, is_text_file
+from search import validate_input, is_text_file, does_path_exist
 
 
 class TestValidateInput(unittest.TestCase):
@@ -24,10 +24,10 @@ class TestValidateInput(unittest.TestCase):
 
     def test_to_see_if_the_path_exists(self):
         path = "TestData/goodData1.txt"
-        self.assertTrue(does_path_exist())
+        self.assertTrue(does_path_exist(path))
         path = "TestData/badData22.txt"
         with self.assertRaises(Exception):
-            does_path_exist()
+            does_path_exist(path)
 
 
 
