@@ -6,6 +6,7 @@ from search import validate_input, is_text_file
 class TestValidateInput(unittest.TestCase):
 
     def test_is_argument_passed(self):
+        sys.argv[1] = "TestData/goodData1.txt"
         with self.assertRaises(Exception):
             validate_input()
 
@@ -20,6 +21,14 @@ class TestValidateInput(unittest.TestCase):
         path = "ksdbfkdsj.com"
         with self.assertRaises(Exception):
             is_text_file(path)
+
+    def test_to_see_if_the_path_exists(self):
+        path = "TestData/goodData1.txt"
+        self.assertTrue(does_path_exist())
+        path = "TestData/badData22.txt"
+        with self.assertRaises(Exception):
+            does_path_exist()
+
 
 
 if __name__ == '__main__':
