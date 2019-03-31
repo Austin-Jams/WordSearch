@@ -34,8 +34,8 @@ def validate_input_file():
                         .format(path_type))
     try:
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        lines = os.path.join(dir_path, path)
-        opened_file = open(lines)
+        file = os.path.join(dir_path, path)
+        opened_file = open(file)
         return opened_file
     except FileNotFoundError:
         print("File not found at path")
