@@ -8,8 +8,17 @@ def word_search():
 
 
 
+
 def validate_input_content(opened_file):
+    key_words_string = opened_file.readline()
+    if not validate_key_words(key_words_string):
+        return False
     return True
+
+
+def validate_key_words(key_words_string):
+
+
 
 def validate_input_file():
     argument_count = len(sys.argv)
