@@ -7,8 +7,6 @@ def word_search():
         raise Exception("Content of file does not meet input criteria.")
 
 
-
-
 def validate_input_content(opened_file):
     key_words_string = opened_file.readline()
     if not validate_key_words(key_words_string):
@@ -17,7 +15,12 @@ def validate_input_content(opened_file):
 
 
 def validate_key_words(key_words_string):
-
+    words = key_words_string.split(",")
+    for word in words:
+        if len(word) <= 1 or not word.isalpha():
+            print("Words must only contain members of the alphabet and must be longer than one letter.")
+            return False
+    return True
 
 
 def validate_input_file():
@@ -36,6 +39,7 @@ def validate_input_file():
         return opened_file
     except FileNotFoundError:
         print("File not found at path")
+
 
 def is_text_file(path):
     file_extension = path[-4:]

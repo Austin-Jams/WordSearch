@@ -11,6 +11,9 @@ class TestValidateInputContent(unittest.TestCase):
 
 
     def test_validate_key_words(self):
+        self.assertFalse(validate_key_words(""))
+        self.assertFalse(validate_key_words("32424234,sdfdsf,dsfsdf,sdfsf"))
+        self.assertFalse(validate_key_words("sdfsdfsdf,fdgfdgfdg,sgfdsgdfg,d"))
         self.assertTrue(validate_key_words("BONES,KHAN,KIRK,SCOTTY,SPOCK,SULU,UHURA"))
 
 
