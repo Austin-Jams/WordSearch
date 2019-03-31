@@ -12,6 +12,7 @@ class TestValidateInputContent(unittest.TestCase):
         file = os.path.join(dir_path, path)
         opened_file = open(file)
         self.assertTrue(validate_board(opened_file), True)
+        opened_file.close()
 
 
     def test_validate_key_words(self):

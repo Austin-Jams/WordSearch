@@ -1,10 +1,13 @@
 import sys
 import os
 
+
 def word_search():
     opened_file = validate_input_file()
     if not validate_input_content(opened_file):
-        raise Exception("Content of file does not meet input criteria.")
+       return False
+    print("Yay")
+
 
 
 def validate_input_content(opened_file):
@@ -17,10 +20,36 @@ def validate_input_content(opened_file):
 
 
 def validate_board(opened_file):
-    return False
+    board = [row.rstrip('\n') for row in opened_file]
+    board.pop(0)
+    total_letters_processed = 0
+    row_count = 0
+    for row in board:
+        row = row.split(",")
+        row_length = len(row)
+        row_count += 1
+        i = 0
+        while i < len(row):
+            total_letters_processed += 1
+            if len(row[i]) is not 1:
+                print("Not properly comma separated.")
+                return False
+            elif not row[i].isalpha():
+                print("Input must be apart of the alphabet.")
+                return False
+            elif i == row_length:
+                if (total_letters_processed/row_count) is not row_length:
+                    print("Not a consistent row length.")
+                    return False
+            i += 1
+    if (total_letters_processed/row_count) is not row_count:
+        print("Not a square.")
+        return False
+    return True
 
 
 def validate_key_words(key_words_string):
+    key_words_string = key_words_string.rstrip("\n")
     words = key_words_string.split(",")
     for word in words:
         if len(word) <= 1 or not word.isalpha():
