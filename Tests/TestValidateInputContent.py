@@ -1,9 +1,17 @@
 import unittest
 import sys
-from search import validate_input_content, validate_key_words
+import os
+from search import validate_input_content, validate_key_words, validate_board
 
 
 class TestValidateInputContent(unittest.TestCase):
+
+    def test_validate_board(self):
+        path = "TestData\goodData1.txt"
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        file = os.path.join(dir_path, path)
+        opened_file = open(file)
+        self.assertTrue(validate_board(opened_file), True)
 
 
     def test_validate_key_words(self):

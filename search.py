@@ -11,7 +11,13 @@ def validate_input_content(opened_file):
     key_words_string = opened_file.readline()
     if not validate_key_words(key_words_string):
         return False
+    if not validate_board(opened_file):
+        return False
     return True
+
+
+def validate_board(opened_file):
+    return False
 
 
 def validate_key_words(key_words_string):
