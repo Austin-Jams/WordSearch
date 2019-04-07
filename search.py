@@ -6,8 +6,9 @@ def word_search():
     opened_file = validate_input_file()
     if not validate_input_content(opened_file):
        return False
-    print("Yay")
-
+    key_word_list = opened_file.readline().rstrip("\n").split("'")
+    key_word_count = len(key_word_list)
+    board = create_board(opened_file)
 
 
 def validate_input_content(opened_file):
@@ -19,17 +20,21 @@ def validate_input_content(opened_file):
     return True
 
 
-def validate_board(opened_file):
-    board = [row.rstrip('\n') for row in opened_file]
+def create_board(opened_file):
+    board = [row.rstrip('\n').split(',') for row in opened_file]
     board.pop(0)
+    return board
+
+
+def validate_board(opened_file):
+    board = create_board(opened_file)
     total_letters_processed = 0
     row_count = 0
     for row in board:
-        row = row.split(",")
         row_length = len(row)
         row_count += 1
         i = 0
-        while i < len(row):
+        while i < row_length:
             total_letters_processed += 1
             if len(row[i]) is not 1:
                 print("Not properly comma separated.")
@@ -42,7 +47,7 @@ def validate_board(opened_file):
                     print("Not a consistent row length.")
                     return False
             i += 1
-    if (total_letters_processed/row_count) is not row_count:
+    if (total_letters_processed%row_count is not 0) and (int((total_letters_processed/row_count)) is not row_count):
         print("Not a square.")
         return False
     return True

@@ -14,6 +14,7 @@ class TestBoardCreation(unittest.TestCase):
         opened_file = open(file)
         board = [['D', 'F', 'G', 'R'], ['L', 'A', 'P', 'A'], ['O', 'R', 'A', 'Y'], ['R', 'T', 'I', 'N']]
         self.assertEqual(board, create_board(opened_file))
+        opened_file.close()
 
 
 
