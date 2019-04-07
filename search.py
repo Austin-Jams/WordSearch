@@ -1,17 +1,25 @@
 import sys
 import os
+from solve import solve, create_processes
 
 
 def word_search():
     opened_file = validate_input_file()
     if not validate_input_content(opened_file):
-       return False
-    key_word_list = opened_file.readline().rstrip("\n").split("'")
-    key_word_count = len(key_word_list)
+        print("Content not valid")
+        exit()
+    opened_file.seek(0)
+    key_word_list = opened_file.readline().rstrip("\n").split(",")
     board = create_board(opened_file)
+    opened_file.close()
+    create_processes(key_word_list,board)
+
 
 
 def validate_input_content(opened_file):
+    if opened_file is None:
+        print("File not open.")
+        return False
     key_words_string = opened_file.readline()
     if not validate_key_words(key_words_string):
         return False
@@ -21,6 +29,7 @@ def validate_input_content(opened_file):
 
 
 def create_board(opened_file):
+    opened_file.seek(0)
     board = [row.rstrip('\n').split(',') for row in opened_file]
     board.pop(0)
     return board
@@ -79,6 +88,7 @@ def validate_input_file():
         return opened_file
     except FileNotFoundError:
         print("File not found at path")
+        exit()
 
 
 def is_text_file(path):
@@ -91,4 +101,5 @@ def is_text_file(path):
 
 
 if __name__ == '__main__':
+    sys.argv.append("Tests\TestData\goodData1.txt")
     word_search()
