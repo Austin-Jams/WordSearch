@@ -1,7 +1,9 @@
 import unittest
 import sys
 import os
-from solve import search_down,search_down_left,search_left,search_up,search_down_right,search_right,search_up_left,search_up_right
+import solve
+
+
 class TestSearch(unittest.TestCase):
 
     def test_search_right(self):
@@ -9,18 +11,25 @@ class TestSearch(unittest.TestCase):
         board = [['D', 'F', 'G', 'R'], ['L', 'A', 'P', 'A'], ['O', 'R', 'A', 'Y'], ['R', 'T', 'I', 'N']]
         word = "TIN"
         forward = True
-        self.assertTrue(search_right(current_position,board,word,forward))
+        self.assertTrue(solve.search_right(current_position, board, word, forward))
 
     def test_search_up(self):
+        return 1
 
     def test_search_down(self):
+        return 1
 
     def test_search_left(self):
+        return 1
 
     def test_search_up_right(self):
+        return 1
 
     def test_search_down_right(self):
+        return 1
 
     def test_search_down_left(self):
+        return 1
 
     def test_search_up_left(self):
+        return 1
