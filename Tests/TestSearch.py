@@ -3,7 +3,6 @@ import sys
 import os
 import solve
 
-
 class TestSearch(unittest.TestCase):
 
     def test_search_right(self):
