@@ -29,17 +29,16 @@ class TestSearch(unittest.TestCase):
         current_position = (0, 1)
         self.assertTrue(solve.search_down(current_position, board, word, forward))
 
-
     def test_search_down_right(self):
-        current_position = (3, 1)
+        current_position = (0,1)
         board = [['D', 'F', 'G', 'R'], ['L', 'A', 'P', 'A'], ['O', 'R', 'A', 'Y'], ['R', 'T', 'I', 'N']]
-        word = "TIN"
+        word = "FPY"
         forward = True
         self.assertTrue(solve.search_right(current_position, board, word, forward))
         forward = False
-        word = 'NIT'
+        word = 'YPF'
         board = [['D', 'F', 'G', 'R'], ['L', 'A', 'P', 'A'], ['O', 'R', 'A', 'Y'], ['R', 'T', 'I', 'N']]
-        current_position = (3, 3)
+        current_position = (0, 1)
         self.assertTrue(solve.search_right(current_position, board, word, forward))
 
     def test_search_down_left(self):
