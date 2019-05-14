@@ -1,7 +1,7 @@
 import unittest
 import sys
 import os
-from search import create_board
+from Search import create_board
 
 
 class TestBoardCreation(unittest.TestCase):

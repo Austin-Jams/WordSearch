@@ -62,9 +62,3 @@ def search_down_left(current_position, board, word, forward):
         string_check += board[row][column]
         row += 1
         column -= 1
-
-
-
-
-
-

@@ -1,7 +1,7 @@
 import unittest
 import sys
 import os
-from search import validate_input_content, validate_key_words, validate_board
+from Search import validate_input_content, validate_key_words, validate_board
 
 
 class TestValidateInputContent(unittest.TestCase):

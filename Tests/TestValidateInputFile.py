@@ -1,6 +1,6 @@
 import unittest
 import sys
-from search import validate_input_file, is_text_file
+from Search import validate_input_file, is_text_file
 
 
 class TestValidateInput(unittest.TestCase):
